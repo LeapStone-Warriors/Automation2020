@@ -1,0 +1,30 @@
+# Created at 2020-11-24T23:12:33.019
+TestSet has not finished before stream error has appeared >> initializing exit by non-null configuration: DEFAULT
+java.io.EOFException
+	at java.base/java.io.DataInputStream.readInt(DataInputStream.java:397)
+	at org.apache.maven.surefire.booter.MasterProcessCommand.decode(MasterProcessCommand.java:115)
+	at org.apache.maven.surefire.booter.CommandReader$CommandRunnable.run(CommandReader.java:391)
+	at java.base/java.lang.Thread.run(Thread.java:830)
+
+
+# Created at 2020-11-24T23:12:40.612
+Unexpected IOException: 5,1,com.crm.qa.testcases.CreateLeadandProspects,test0(com.crm.qa.testcases.CreateLeadandProspects),com.crm.qa.testcases.CreateLeadandProspects,null,null
+
+
+# Created at 2020-11-24T23:12:40.613
+Unexpected IOException with stream: 
+
+
+# Created at 2020-11-24T23:12:40.614
+Unexpected IOException with stream: ***************************** Executing Test Case: Reached Scenario for Multiple Users ******************************
+
+
+# Created at 2020-11-24T23:12:40.614
+Unexpected IOException with stream: 
+
+
+# Created at 2020-11-24T23:12:46.911
+Unexpected IOException with stream: Nov 24, 2020 11:12:46 PM org.openqa.selenium.remote.ErrorCodes toStatus
+INFO: HTTP Status: '404' -> incorrect JSON status mapping for 'no such window' (400 expected)
+
+

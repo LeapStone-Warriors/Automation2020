@@ -1,0 +1,30 @@
+# Created at 2020-11-24T23:14:57.959
+TestSet has not finished before stream error has appeared >> initializing exit by non-null configuration: DEFAULT
+java.io.EOFException
+	at java.base/java.io.DataInputStream.readInt(DataInputStream.java:397)
+	at org.apache.maven.surefire.booter.MasterProcessCommand.decode(MasterProcessCommand.java:115)
+	at org.apache.maven.surefire.booter.CommandReader$CommandRunnable.run(CommandReader.java:391)
+	at java.base/java.lang.Thread.run(Thread.java:830)
+
+
+# Created at 2020-11-24T23:14:58.870
+Unexpected IOException with stream: Nov 24, 2020 11:14:58 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+
+
+# Created at 2020-11-24T23:15:08.263
+Unexpected IOException: 5,1,com.crm.qa.testcases.CreateLeadandProspects,test0(com.crm.qa.testcases.CreateLeadandProspects),com.crm.qa.testcases.CreateLeadandProspects,null,null
+
+
+# Created at 2020-11-24T23:15:08.264
+Unexpected IOException with stream: 
+
+
+# Created at 2020-11-24T23:15:08.265
+Unexpected IOException with stream: ***************************** Executing Test Case: Reached Scenario for Multiple Users ******************************
+
+
+# Created at 2020-11-24T23:15:08.265
+Unexpected IOException with stream: 
+
+

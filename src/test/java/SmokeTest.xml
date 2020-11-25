@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="SFDC Test Automation Test Suite" parallel="methods" thread-count="1">
+
+	<listeners>
+		<listener class-name="com.qa.EventListener.TestListener"/>
+		<listener class-name="com.qa.EventListener.FailureRetryListener"/>
+	</listeners>
+
+
+
+
+		<test name="Log a Call for Household Test Scenarios">
+			<classes>
+			<class name="com.crm.qa.testcases.CreateLeadandProspects">
+			<methods>
+	
+					<include name="test0"></include>
+					
+
+		
+					
+		
+			</methods>
+			</class>
+			</classes>
+			</test>
+
+
+
+
+
+
+
+</suite>

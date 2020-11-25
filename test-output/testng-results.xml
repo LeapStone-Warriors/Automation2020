@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="3" total="4" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2020-11-25T08:26:09 MST" name="SFDC Test Automation Test Suite" finished-at="2020-11-25T08:26:54 MST" duration-ms="44677">
+    <groups>
+    </groups>
+    <test started-at="2020-11-25T08:26:09 MST" name="Log a Call for Household Test Scenarios" finished-at="2020-11-25T08:26:54 MST" duration-ms="44677">
+      <class name="com.crm.qa.testcases.CreateLeadandProspects">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.crm.qa.testcases.CreateLeadandProspects@644baf4a]" started-at="2020-11-25T08:26:09 MST" name="setUp" finished-at="2020-11-25T08:26:26 MST" duration-ms="16808" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="test0(java.lang.String)[pri:0, instance:com.crm.qa.testcases.CreateLeadandProspects@644baf4a]" started-at="2020-11-25T08:26:26 MST" name="test0" description="Test Description: Log a Call with  Reached Scenario. Test Case will be run for multiple profiles." data-provider="multipleUsers" finished-at="2020-11-25T08:26:53 MST" duration-ms="27157" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[0056g000005JzikAAC]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test0 -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.CreateLeadandProspects@644baf4a]" started-at="2020-11-25T08:26:53 MST" name="tearDown" finished-at="2020-11-25T08:26:54 MST" duration-ms="676" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.crm.qa.testcases.CreateLeadandProspects -->
+    </test> <!-- Log a Call for Household Test Scenarios -->
+  </suite> <!-- SFDC Test Automation Test Suite -->
+</testng-results>
