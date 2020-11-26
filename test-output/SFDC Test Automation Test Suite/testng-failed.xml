@@ -9,9 +9,9 @@
     <classes>
       <class name="com.crm.qa.testcases.CreateLeadandProspects">
         <methods>
+          <include name="test1" invocation-numbers="0 0"/>
           <include name="setUp"/>
           <include name="tearDown"/>
-          <include name="test3" invocation-numbers="0"/>
         </methods>
       </class> <!-- com.crm.qa.testcases.CreateLeadandProspects -->
     </classes>

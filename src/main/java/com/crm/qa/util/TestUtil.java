@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Locale;
+import java.util.Random;
+
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
@@ -135,8 +137,6 @@ public class TestUtil extends TestBase{
     }
     
    
-   
-    
     
     
     public static void waitUntilPageLoad(WebDriver driver) throws InterruptedException { 
@@ -208,8 +208,111 @@ public class TestUtil extends TestBase{
  		driver.findElement(By.xpath("//span[contains (@class,('menuLabel slds-listbox'))][contains(text(),'" +Menu+ "')]")).click();
  	}
  	
-  
+ 
+     
+     /**
+      * generates random phone number
+      * @return
+      */
+     public static String getPhoneNumber(){
+         int num1, num2, num3; //3 numbers in area code
+         int set2, set3; //sequence 2 and 3 of the phone number
+         Random generator = new Random();
+         //Area code number; Will not print 8 or 9
+         num1 = generator.nextInt(7) + 1; //add 1 so there is no 0 to begin
+         num2 = generator.nextInt(8); //randomize to 8 because 0 counts as a number in the generator
+         num3 = generator.nextInt(8);
+         /* Sequence two of phone number
+          the plus 100 is so there will always be a 3 digit number
+          randomize to 643 because 0 starts the first placement so if i randomized up to 642 it would only go up yo 641 plus 100
+          and i used 643 so when it adds 100 it will not succeed 742*/
+         set2 = generator.nextInt(643) + 100;
+         /*Sequence 3 of number
+          add 1000 so there will always be 4 numbers
+          8999 so it wont succeed 9999 when the 1000 is added*/
+         set3 = generator.nextInt(8999) + 1000;
+         return "+1"+"(" + num1 + "" + num2 + "" + num3 + ")" + set2 + "-" + set3;
+     }
+
+     /**
+      * generates random website name
+      * @return
+      */
+     public static String getNewWebsite(){
+         String string = "abcdefghijklmnopqrstuvwxyz";
+         StringBuilder generatedString = new StringBuilder();
+         Random random = new Random();
+         //you can change 'n' to any number as needed
+         int n = 10;
+         for(int i=0; i<n;i++){
+             int number = random.nextInt(string.length()-1);
+             generatedString.append(string.charAt(number));
+         }
+         return generatedString.toString()+".com";
+     }
+
+     /**
+      * will generate random string
+      * @return
+      */
+     public static String getNewEmail() {
+         String string = "abcdefghijklmnopqrstuvwxyz" + "0123456789";
+         StringBuilder stringBuilder = new StringBuilder();
+         Random random = new Random();
+         //you can change 'n' to any number as needed
+         int n = 10;
+         for (int i = 0; i < n; i++) {
+             int number = random.nextInt(string.length() - 1);
+             stringBuilder.append(string.charAt(number));
+         }
+         int number = random.nextInt(3) + 1;
+         switch (number) {
+             case 1:
+                 return stringBuilder + "@yahoo.com";
+             case 2:
+                 return stringBuilder + "@gmail.com";
+             default:
+                 return stringBuilder + "@outlook.com";
+         }
+     }
+
+     /**
+      * will generate random string
+      * @return
+      */
+     public static String getRandomString(){
+         String string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"+"abcdefghijklmnopqrstuvwxyz";
+         StringBuilder generatedString = new StringBuilder();
+         Random random = new Random();
+         //you can change 'n' to any number as needed
+         int n = 10;
+         for(int i=0; i<n;i++){
+             int number = random.nextInt(string.length()-1);
+             generatedString.append(string.charAt(number));
+         }
+         return generatedString.toString();
+     }
+
+     /**
+      * creates random new name
+      * @return
+      */
+     public static String getNewName(){
+         String string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"+"abcdefghijklmnopqrstuvwxyz";
+         StringBuilder generatedName = new StringBuilder();
+         Random random = new Random();
+         //you can change 'n' to any number as needed
+         int n = 10;
+         for(int i=0; i<n;i++){
+             int number = random.nextInt(string.length()-1);
+             generatedName.append(string.charAt(number));
+         }
+         return generatedName.toString();
+     }
     
+  
+     
+     
      //Validate Detail Page Fields
      public static void validatePageField(String fieldName, String expectedValue, String errorMessage) throws InterruptedException, AWTException {
 	 		
@@ -275,19 +378,11 @@ public class TestUtil extends TestBase{
  	    try {
  	        zeroWait.until(c);
  	        return true;
- 	    } catch (Exception e) {
- 	        return false;
- 	    }
+ 	    } catch (Exception e) {return false;}
  	}   
      
     
   
-     
-     
-     
-     
-     
-     
      
      
 }

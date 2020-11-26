@@ -1,4 +1,4 @@
-package com.qa.DataProvider;
+package com.crm.qa.dataProvider;
 
 import java.io.IOException;
 

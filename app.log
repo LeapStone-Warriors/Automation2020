@@ -1,9 +1,9 @@
-2020-11-25 15:50:01,785 [INFO ] trail - ////////////////////Automation Script Execution Started!/////////////////////////
-2020-11-25 15:50:17,291 [INFO ] trail - 
-###############################Test Case: test3 is Started!####################################
+2020-11-25 23:13:06,839 [INFO ] trail - ////////////////////Automation Script Execution Started!/////////////////////////
+2020-11-25 23:13:24,705 [INFO ] trail - 
+###############################Test Case: test4 is Started!####################################
 
-2020-11-25 15:50:29,157 [INFO ] trail - Logged in as : null
-2020-11-25 15:50:33,144 [INFO ] trail - 
-###############################Test Case: test3 is passed!####################################
+2020-11-25 23:13:35,876 [INFO ] trail - Logged in as : null
+2020-11-25 23:13:40,363 [INFO ] trail - 
+###############################Test Case: test4 is passed!####################################
 
-2020-11-25 15:50:33,816 [INFO ] trail - ////////////////////Automation Script Execution Completed!/////////////////////////
+2020-11-25 23:13:41,067 [INFO ] trail - ////////////////////Automation Script Execution Completed!/////////////////////////

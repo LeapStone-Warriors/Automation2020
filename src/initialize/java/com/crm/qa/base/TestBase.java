@@ -36,9 +36,9 @@ public class TestBase {
 		try {
 			
 			prop = new Properties();
-			FileInputStream ip = new FileInputStream(System.getProperty("user.dir")+ "/src/main/java/com/crm"+ "/qa/config/QAconfig.properties");
+			FileInputStream ip = new FileInputStream(System.getProperty("user.dir")+ "/src/configuration/java/com/crm"+ "/qa/config/QAconfig.properties");
 			prop.load(ip);
-			
+
 		} 	catch (FileNotFoundException e) {e.printStackTrace();} 
 			catch (IOException e) {e.printStackTrace();}
 	}

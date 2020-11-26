@@ -1,4 +1,4 @@
-package com.qa.DataProvider;
+package com.crm.qa.dataProvider;
 
 /* Different profiles thats can be used to run test cases
  
