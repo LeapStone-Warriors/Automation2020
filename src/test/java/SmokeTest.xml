@@ -12,7 +12,7 @@
 
 		<test name="Log a Call for Household Test Scenarios">
 			<classes>
-			<class name="com.crm.qa.testcases.CreateLeadandProspects">
+			<class name="com.crm.qa.testcases.LeadTestCases">
 			<methods>
 	
 			

@@ -18,8 +18,8 @@ public class FailureRetryListener implements IAnnotationTransformer {
 	
 	//Overriding the transform method to set the RetryAnalyzer
 	@Override
-	public void transform(ITestAnnotation testAnnotation, Class testClass, 
-			Constructor testConstructor, Method testMethod)	{
+	public void transform(ITestAnnotation testAnnotation, @SuppressWarnings("rawtypes") Class testClass,@SuppressWarnings("rawtypes") Constructor testConstructor, Method testMethod){
+		@SuppressWarnings("deprecation")
 		IRetryAnalyzer retry = testAnnotation.getRetryAnalyzer();
 
 		if (retry == null)

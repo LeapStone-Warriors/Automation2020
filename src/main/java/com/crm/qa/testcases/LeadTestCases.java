@@ -18,7 +18,7 @@ import com.crm.qa.util.*;
 
 
 
-public class CreateLeadandProspects extends TestBase {
+public class LeadTestCases extends TestBase {
 
 	
 	JSONObject lead = new JSONObject();

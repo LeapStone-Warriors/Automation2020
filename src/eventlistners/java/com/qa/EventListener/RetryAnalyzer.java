@@ -13,7 +13,7 @@ import org.testng.ITestResult;
 import com.relevantcodes.extentreports.LogStatus;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
+
 
 import com.crm.qa.base.TestBase;
 import com.qa.ExtentReport.ExtentTestManager;
@@ -42,7 +42,8 @@ public class RetryAnalyzer extends TestBase implements IRetryAnalyzer {
 	}	
 
 	 public void extendReportsFailOperations(ITestResult iTestResult) {
-	        Object testClass = iTestResult.getInstance();
+	        @SuppressWarnings("unused")
+			Object testClass = iTestResult.getInstance();
 	        //WebDriver webDriver = ((TestBase) testClass).getDriver();
 	        String base64Screenshot = "data:image/png;base64," + ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
 	        ExtentTestManager.getTest().log(LogStatus.FAIL, "Test Failed",

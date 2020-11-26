@@ -7,7 +7,7 @@ import java.text.SimpleDateFormat;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
+
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -65,7 +65,7 @@ public class TestListener extends TestBase implements ITestListener {
         
   
       //Get driver from BaseTest and assign to local webDriver variable.
-        Object testClass = result.getInstance();
+        //Object testClass = result.getInstance();
         //WebDriver webDriver = ((TestBase) testClass).getDriver();
  
      /*   
@@ -80,14 +80,8 @@ public class TestListener extends TestBase implements ITestListener {
 	            ExtentTestManager.getTest().addBase64ScreenShot(base64Screenshot));
         
  */
-        	try {
-				
-        
-        		takescreen(result);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+        	try {takescreen(result);} 
+        	catch (IOException e) {e.printStackTrace();}
   
         
     }

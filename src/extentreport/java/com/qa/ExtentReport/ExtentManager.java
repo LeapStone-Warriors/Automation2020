@@ -28,7 +28,7 @@ public class ExtentManager extends TestBase{
   private static Platform platform;
   private static String reportFileName = "Test-Automaton-Report_"+timeStamp+".html" ;
  
-  private static String scrshotFileWinPath = System.getProperty("user.dir")+ "\\ScreenShot";
+  //private static String scrshotFileWinPath = System.getProperty("user.dir")+ "\\ScreenShot";
   
   private static String macPath = System.getProperty("user.dir")+ "/TestReport";
   private static String windowsPath = System.getProperty("user.dir")+ "\\TestReport";
