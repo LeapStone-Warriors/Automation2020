@@ -1,13 +1,12 @@
 package com.crm.qa.pages;
 
 
-import org.openqa.selenium.By;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import com.crm.qa.pages.RetailAccount;
 import com.crm.qa.util.*;
-
 import com.crm.qa.base.TestBase;
 
 
@@ -65,8 +64,6 @@ public class HomePage extends TestBase {
 	public static String AccountURL;
 	public static String SpouseAccountURL;
 	
-	SalesforceRestAPI restapi = new SalesforceRestAPI();
-	
 	
 
 	public HomePage() {	PageFactory.initElements(driver, this);	}
@@ -74,49 +71,26 @@ public class HomePage extends TestBase {
 		
 
 	
-	public static void navigateToUser(String role) throws InterruptedException{
-	
-	
-		if (role.equalsIgnoreCase("advisor")){
-	
-			String advisorId = prop.getProperty("advisorsfdcId1");
-				
-			driver.navigate().to(prop.getProperty("SFDC_TestEnv")+"/lightning/r/User/"+advisorId+"/view");
-			userProfile  = RetailAccount.userProfile = usrProfile.getText();
-			advisorLink.click();Thread.sleep(5000);
-			
-			
-			WebElement iframe = driver.findElement(By.xpath("//iframe[contains (@name,('vfFrameId'))]"));Thread.sleep(3000);
-			driver.switchTo().frame(iframe);Thread.sleep(5000);
-			
-			advisorLogin.click();Thread.sleep(5000);
-			driver.switchTo().defaultContent();Thread.sleep(5000);
-			driver.navigate().refresh();Thread.sleep(5000);}
-	
-		else if (role.equalsIgnoreCase("nonadvisor")){String advisorId = prop.getProperty("advisorsfdcId1");}
-		
-	}
-
-	
-	
 	public void navigateToMultipleUser(String role, String advisorId) throws InterruptedException{
-	
-	
+		
+		
 		if (role.equalsIgnoreCase("advisor")){
 		
-			driver.navigate().to(prop.getProperty("SFDC_TestEnv")+"/lightning/r/User/"+advisorId+"/view");Thread.sleep(2000);
+			driver.navigate().to(prop.getProperty("SFDC_TestEnv")+"/lightning/r/User/"+advisorId+"/view");
+			
 			TestUtil.waitUntilElementVisible(advisorLink);
-			//userProfile  = RetailAccount.userProfile = usrProfile.getText();
 			TestUtil.clickElement(advisorLink);
 			
 			TestUtil.waitUntilElementVisible(iframe);
-			driver.switchTo().frame(iframe);Thread.sleep(3000);
+			driver.switchTo().frame(iframe);
+			Thread.sleep(3000);
 			
-			
+			TestUtil.waitforElementVisible(advisorLogin);
 			TestUtil.clickElement(advisorLogin);Thread.sleep(3000);
-			driver.switchTo().defaultContent();Thread.sleep(5000);
+			driver.switchTo().defaultContent();
 			
-			//driver.navigate().refresh();
+	
+			
 			
 		} else if (role.equalsIgnoreCase("admin")){
 			
@@ -130,6 +104,37 @@ public class HomePage extends TestBase {
 
 	
 	
+	/*
+	
+	public static void navigateToUser(String role) throws InterruptedException{
+	
+	
+		if (role.equalsIgnoreCase("advisor")){
+	
+			String advisorId = prop.getProperty("advisorsfdcId1");
+				
+			driver.navigate().to(prop.getProperty("SFDC_TestEnv")+"/lightning/r/User/"+advisorId+"/view");
+			userProfile  = RetailAccount.userProfile = usrProfile.getText();
+			advisorLink.click();Thread.sleep(5000);
+
+			WebElement iframe = driver.findElement(By.xpath("//iframe[contains (@name,('vfFrameId'))]"));Thread.sleep(3000);
+			driver.switchTo().frame(iframe);Thread.sleep(5000);
+			
+			advisorLogin.click();Thread.sleep(5000);
+			driver.switchTo().defaultContent();Thread.sleep(5000);
+			driver.navigate().refresh();Thread.sleep(5000);}
+		
+		   
+	
+		else if (role.equalsIgnoreCase("nonadvisor")){}
+		
+	}
+
+	*/
+	
+	
+	
+/*	
 	
 	public  void navigateToRetailuser(String userType) throws InterruptedException{
 		
@@ -147,7 +152,6 @@ public class HomePage extends TestBase {
 			
 		//Keep this code and use it if Household link is not working. Don't forget to comment out householdPage.gotoHousehold();
 		//sfdcId = sfdcId.replace(sfdcId.charAt(14), (char)(sfdcId.charAt(14) + 1));
-			
 		
 	}
 	
@@ -159,15 +163,6 @@ public class HomePage extends TestBase {
 		String url = "https://fei--fscfull.lightning.force.com/lightning/r/Account/"+sfdcId+"/view";
 		driver.navigate().to(url);
 		Thread.sleep(5000);
-	}
-	
-
-//This can be commented since it is covered in the above method ---navigateToUser(String role)
-
-	public static void navigateTo_nonAdvisor() throws InterruptedException{
-	
-		String advisorId = prop.getProperty("advisorsfdcId1");
-	
 	}
 	
 	
@@ -192,7 +187,7 @@ public class HomePage extends TestBase {
 	
 	
 	
-	
+*/	
 	public boolean validateDescriptionData(String taskDescription, String description) {
 		
 		boolean desccomp = true;

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="1" parallel="methods" name="Failed suite [SFDC Test Automation Test Suite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="com.qa.EventListener.TestListener"/>
+    <listener class-name="com.qa.EventListener.FailureRetryListener"/>
+  </listeners>
+  <test thread-count="1" parallel="methods" name="Log a Call for Household Test Scenarios(failed)">
+    <classes>
+      <class name="com.crm.qa.testcases.CreateLeadandProspects">
+        <methods>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="test3" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- com.crm.qa.testcases.CreateLeadandProspects -->
+    </classes>
+  </test> <!-- Log a Call for Household Test Scenarios(failed) -->
+</suite> <!-- Failed suite [SFDC Test Automation Test Suite] -->

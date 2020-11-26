@@ -15,7 +15,7 @@
 			<class name="com.crm.qa.testcases.CreateLeadandProspects">
 			<methods>
 	
-					<include name="test0"></include>
+					<include name="test3"></include>
 					
 
 		

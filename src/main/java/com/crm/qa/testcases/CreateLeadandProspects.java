@@ -16,6 +16,7 @@ import com.crm.qa.pages.SalesforceRestAPI;
 import com.crm.qa.pages.SalesforceTestRestAPI;
 
 import com.crm.qa.pages.ClientPage;
+import com.crm.qa.pages.LeadPage;
 import com.crm.qa.util.*;
 import com.qa.DataProvider.*;
 
@@ -30,6 +31,7 @@ public class CreateLeadandProspects extends TestBase {
 	SalesforceRestAPI 			sfdcRestAPI;
 	InitializeUserData 			initializeData;
 	ClientPage					clientPage;
+	LeadPage					leadPage;
 	Log							log;	
 	
 	SoftAssert softAssertion = new SoftAssert();
@@ -44,6 +46,7 @@ public class CreateLeadandProspects extends TestBase {
 		sfdcRestAPI 		= new SalesforceRestAPI();
 		initializeData 		= new InitializeUserData();
 		clientPage			= new ClientPage();
+		leadPage			= new LeadPage();
 		log					= new Log();
 		
 		homePage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
@@ -100,8 +103,11 @@ public class CreateLeadandProspects extends TestBase {
 	@Test(description = "Test Description: Log a Call with  Reached Scenario. Test Case will be run for multiple profiles.",dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
 	public void test3(String advisorId) throws Exception{
 		
-		TestUtil.print("Experiment");
+		homePage.navigateToMultipleUser("advisor", advisorId);		log.info("Logged in as : " +advisorType(advisorId));
 		
+		TestUtil.print("Experiment");
+		leadPage.openLead();Thread.sleep(3000);
+		System.out.println(leadPage.readLeadValues());
 		
 		System.out.println("Test Passed");
 	
