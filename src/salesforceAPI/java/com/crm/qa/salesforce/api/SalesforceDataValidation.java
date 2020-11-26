@@ -2,21 +2,18 @@ package com.crm.qa.salesforce.api;
 
 import java.util.HashMap;
 import java.util.Map;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.testng.Assert;
-
 import com.crm.qa.base.TestBase;
 import com.crm.qa.salesforce.api.SalesforceConstants;
 import com.crm.qa.salesforce.api.SalesforceCRUDOperationAPI;
-import com.crm.qa.salesforce.api.SalesforceRestStarter;
+
 
 public class SalesforceDataValidation extends TestBase{
 
 	 
 	private static JSONObject json = new JSONObject();	
-	private static Map<String, String> SFTokenandInstanceURL = new HashMap<String, String>();
 	private static Map<String, String> salesforceLead = new HashMap<String, String>();
 	static SalesforceCRUDOperationAPI sfdcAPICRUDOperation = new SalesforceCRUDOperationAPI();
 	

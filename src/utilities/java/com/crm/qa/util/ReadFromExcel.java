@@ -60,7 +60,7 @@ public class ReadFromExcel extends TestBase {
 	 		
 
     		String filePath = System.getProperty("user.dir")+ prop.getProperty("ExcelFilePath");
-    		String sheetName = prop.getProperty("ExcelSheetName");
+    		//String sheetName = prop.getProperty("ExcelSheetName");
     		
     		
     		FileInputStream fis = new FileInputStream(filePath);

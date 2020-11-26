@@ -11,8 +11,6 @@ import com.crm.qa.dataProvider.*;
 import com.crm.qa.pages.HomePage;
 import com.crm.qa.pages.LoginPage;
 import com.crm.qa.base.InitializeUserData;
-import com.crm.qa.pages.SalesforceRestAPI;
-import com.crm.qa.pages.SalesforceTestRestAPI;
 import com.crm.qa.salesforce.api.SalesforceCRUDOperationAPI;
 import com.crm.qa.pages.ClientPage;
 import com.crm.qa.pages.LeadPage;
@@ -28,8 +26,6 @@ public class CreateLeadandProspects extends TestBase {
 	
 	LoginPage 					loginPage;
 	HomePage 					homePage;
-	SalesforceTestRestAPI 		sfdcTestRestAPI;
-	SalesforceRestAPI 			sfdcRestAPI;
 	SalesforceCRUDOperationAPI  sfdcAPICRUDOperation;
 	InitializeUserData 			initializeData;
 	ClientPage					clientPage;
@@ -44,8 +40,6 @@ public class CreateLeadandProspects extends TestBase {
 		initialization();
 		
 		loginPage 			= new LoginPage();
-		sfdcTestRestAPI 	= new SalesforceTestRestAPI();
-		sfdcRestAPI 		= new SalesforceRestAPI();
 		sfdcAPICRUDOperation= new SalesforceCRUDOperationAPI();
 		initializeData 		= new InitializeUserData();
 		clientPage			= new ClientPage();
@@ -54,9 +48,7 @@ public class CreateLeadandProspects extends TestBase {
 		
 		homePage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
 		
-		
-		initializeData.setTestCaseonDemandtoNo();
-		initializeData.initialize();
+
 		
 	}
 	

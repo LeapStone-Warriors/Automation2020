@@ -5,7 +5,6 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import com.crm.qa.pages.RetailAccount;
 import com.crm.qa.util.*;
 import com.crm.qa.base.TestBase;
 
@@ -146,15 +145,15 @@ public class ClientPage extends TestBase {
 	public void createClient() throws InterruptedException{
 	
 		drpdwnSalutation.click();drpdwnSalutation.sendKeys("Mr.", Keys.ENTER);
-		TestUtil.enterTextinField("First Name", "AutoFirstName"+ RetailAccount.uid);
+		TestUtil.enterTextinField("First Name", "AutoFirstName");
 		TestUtil.enterTextinField("Middle Name", "S.");
-		TestUtil.enterTextinField("Last Name", TestUtil.generateString()+RetailAccount.uid+"Imran");
+		TestUtil.enterTextinField("Last Name", TestUtil.generateString()+"Imran");
 		TestUtil.enterTextinField("Suffix", "III");
 		TestUtil.enterTextinField("Preferred Name", "Automation01");
 		TestUtil.dropdownOption("Tax ID Type", "SSN");
 		TestUtil.enterTextinField("Tax ID Number", "1234");
 		TestUtil.dropdownOption("Visa Details", "Student");
-		TestUtil.enterTextinField("Email", "test"+RetailAccount.uid+"@email.com");
+		TestUtil.enterTextinField("Email", "test"+"@email.com");
 		TestUtil.enterTextinField("Mobile Phone", "9195568901");
 		TestUtil.dropdownOption("Employment Status","Employed");
 		TestUtil.enterTextinField("Company", "Sony");
@@ -201,7 +200,7 @@ public class ClientPage extends TestBase {
 		TestUtil.dropdownOption("Gender","Agender");
 		TestUtil.dropdownOption("Marital Status", "Married");
 		TestUtil.dropdownOption("Client Segment", "VC Investor");
-		TestUtil.enterTextinField("Spouse", "SpouseAutomation"+RetailAccount.uid);
+		TestUtil.enterTextinField("Spouse", "SpouseAutomation");
 		TestUtil.enterTextinField("Dependents", "2");
 		TestUtil.enterTextinField("Language", "English");
 		

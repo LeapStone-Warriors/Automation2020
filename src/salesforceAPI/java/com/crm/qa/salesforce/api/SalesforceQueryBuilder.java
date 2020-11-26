@@ -2,7 +2,7 @@ package com.crm.qa.salesforce.api;
 
 public class SalesforceQueryBuilder {
 
-	private static String read, post, update, delete;
+	private static String read, post;
 	
 	
 	public static String getQueryFor(String queryFor, String sfdcId)   {

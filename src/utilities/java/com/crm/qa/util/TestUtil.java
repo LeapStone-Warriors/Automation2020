@@ -7,7 +7,6 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Locale;
 import java.util.Random;
-
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
@@ -20,7 +19,6 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import com.crm.qa.base.TestBase;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -179,24 +177,27 @@ public class TestUtil extends TestBase{
      }
  
      
+     //Need SFDCId for this one. Work on it if you want to use it.
      public static void clickAccountLink() throws InterruptedException {
     	 
-    	 String accountId = RetailUserdetails.get_sfdcID();
-    	 
+    	 String accountId = null;
     	 driver.findElement(By.xpath("//a[contains (@class, ('" +accountId+ "'))]")).click();
     	 Thread.sleep(2000);
     	 
     	 
      }
  
+     
+   //Need AccountName for this one. Work on it if you want to use it.
      public void clickAccountviaAccountScreen() throws InterruptedException{ 
  		
+    	 String accountName = null;
  		Thread.sleep(2000);
  		changeNavigationMenu("Accounts");
  		Thread.sleep(2000);
  		TestUtil.closeAllOpenTabs(driver);
  		Thread.sleep(2000);
- 		driver.findElement(By.xpath("(//a[contains (@title, ('" +RetailUserdetails.getaccountName("primary")+ "'))][contains (@class, ('slds-truncate'))])[1]")).click();
+ 		driver.findElement(By.xpath("(//a[contains (@title, ('" +accountName+ "'))][contains (@class, ('slds-truncate'))])[1]")).click();
  		Thread.sleep(2000);
  		
  	}
@@ -365,7 +366,7 @@ public class TestUtil extends TestBase{
       
         String[] selectorWithValue= (element.toString().split("->")[1].replaceFirst("(?s)(.*)\\]", "$1" + "")).split(":");
 
-        String selector = selectorWithValue[0].trim();
+        //String selector = selectorWithValue[0].trim();
         String value = selectorWithValue[1].trim();
         return value;
     }   

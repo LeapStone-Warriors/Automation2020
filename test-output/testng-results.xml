@@ -2,16 +2,16 @@
 <testng-results ignored="3" total="4" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-11-25T23:13:06 MST" name="SFDC Test Automation Test Suite" finished-at="2020-11-25T23:13:41 MST" duration-ms="34217">
+  <suite started-at="2020-11-25T23:38:16 MST" name="SFDC Test Automation Test Suite" finished-at="2020-11-25T23:38:47 MST" duration-ms="31240">
     <groups>
     </groups>
-    <test started-at="2020-11-25T23:13:06 MST" name="Log a Call for Household Test Scenarios" finished-at="2020-11-25T23:13:41 MST" duration-ms="34217">
+    <test started-at="2020-11-25T23:38:16 MST" name="Log a Call for Household Test Scenarios" finished-at="2020-11-25T23:38:47 MST" duration-ms="31240">
       <class name="com.crm.qa.testcases.CreateLeadandProspects">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.crm.qa.testcases.CreateLeadandProspects@25ce9dc4]" started-at="2020-11-25T23:13:06 MST" name="setUp" finished-at="2020-11-25T23:13:24 MST" duration-ms="17829" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.crm.qa.testcases.CreateLeadandProspects@25ce9dc4]" started-at="2020-11-25T23:38:16 MST" name="setUp" finished-at="2020-11-25T23:38:30 MST" duration-ms="14496" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="test4(java.lang.String)[pri:0, instance:com.crm.qa.testcases.CreateLeadandProspects@25ce9dc4]" started-at="2020-11-25T23:13:24 MST" name="test4" description="Test Description: Log a Call with  Reached Scenario. Test Case will be run for multiple profiles." data-provider="multipleUsers" finished-at="2020-11-25T23:13:40 MST" duration-ms="15660" status="PASS">
+        <test-method signature="test4(java.lang.String)[pri:0, instance:com.crm.qa.testcases.CreateLeadandProspects@25ce9dc4]" started-at="2020-11-25T23:38:30 MST" name="test4" description="Test Description: Log a Call with  Reached Scenario. Test Case will be run for multiple profiles." data-provider="multipleUsers" finished-at="2020-11-25T23:38:46 MST" duration-ms="16052" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -22,7 +22,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test4 -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.CreateLeadandProspects@25ce9dc4]" started-at="2020-11-25T23:13:40 MST" name="tearDown" finished-at="2020-11-25T23:13:41 MST" duration-ms="688" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.CreateLeadandProspects@25ce9dc4]" started-at="2020-11-25T23:38:46 MST" name="tearDown" finished-at="2020-11-25T23:38:47 MST" duration-ms="657" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
