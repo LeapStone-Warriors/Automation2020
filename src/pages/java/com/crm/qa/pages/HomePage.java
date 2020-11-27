@@ -69,6 +69,8 @@ public class HomePage extends TestBase {
 	public String verifyHomePageTitle(){return driver.getTitle();}
 		
 
+	public void goBacktoHomepage() {driver.navigate().to("https://svb--qa.lightning.force.com/lightning/page/home");}
+	
 	
 	public void navigateToMultipleUser(String role, String advisorId) throws InterruptedException{
 		
@@ -101,6 +103,7 @@ public class HomePage extends TestBase {
 	
 	}
 
+	
 	
 	
 	/*

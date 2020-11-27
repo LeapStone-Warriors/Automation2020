@@ -7,15 +7,11 @@ import java.io.InputStream;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Properties;
-
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
-
 import org.apache.poi.ss.usermodel.WorkbookFactory;
-
-import com.crm.qa.base.InitializeUserData;
 import com.crm.qa.base.TestBase;
 
 
@@ -25,7 +21,7 @@ public class ExcelWrite extends TestBase{
 	static String path = "C://Users//ISharaf//Desktop//ExcelFile//NWB.xlsx";
 	static List<String> VarArray = new LinkedList<>();
 	
-	InitializeUserData 	initializeData = new InitializeUserData(); 
+	 
 	Properties cloned = (Properties)prop.clone();
 	
 	 	public void writeTestCaseResults(String ...Arguments ) throws IOException, InvalidFormatException {

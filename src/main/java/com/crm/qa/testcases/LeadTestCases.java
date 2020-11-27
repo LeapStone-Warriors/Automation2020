@@ -1,58 +1,18 @@
 package com.crm.qa.testcases;
 
 
-
-import org.json.JSONObject;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.openqa.selenium.By;
 import org.testng.annotations.Test;
-import com.crm.qa.base.TestBase;
 import com.crm.qa.dataProvider.*;
-import com.crm.qa.pages.HomePage;
-import com.crm.qa.pages.LoginPage;
-import com.crm.qa.base.InitializeUserData;
-import com.crm.qa.salesforce.api.SalesforceCRUDOperationAPI;
-import com.crm.qa.pages.ClientPage;
-import com.crm.qa.pages.LeadPage;
 import com.crm.qa.util.*;
+import com.crm.qa.base.InitialSetup;
 
 
 
-public class LeadTestCases extends TestBase {
+public class LeadTestCases extends InitialSetup {
 
+	String txt;
 	
-	JSONObject lead = new JSONObject();
-	
-	
-	LoginPage 					loginPage;
-	HomePage 					homePage;
-	SalesforceCRUDOperationAPI  sfdcAPICRUDOperation;
-	InitializeUserData 			initializeData;
-	ClientPage					clientPage;
-	LeadPage					leadPage;
-	Log							log;	
-	
-	
-	
-	
-	@BeforeMethod
-	public void setUp() throws Exception {
-		initialization();
-		
-		loginPage 			= new LoginPage();
-		sfdcAPICRUDOperation= new SalesforceCRUDOperationAPI();
-		initializeData 		= new InitializeUserData();
-		clientPage			= new ClientPage();
-		leadPage			= new LeadPage();
-		log					= new Log();
-		
-		homePage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
-		
-
-		
-	}
-	
-
 	@Test(description = "Test Description: Grab the exiting Lead and using API and print Leads Data.",dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
 	public void test0(String advisorId) throws Exception{
 		
@@ -75,36 +35,92 @@ public class LeadTestCases extends TestBase {
 	@Test(description = "Test Description: Read Leads Data from Salesforce Leads Highlight Panel.",dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
 	public void test3(String advisorId) throws Exception{
 		
-		homePage.navigateToMultipleUser("advisor", advisorId);		log.info("Logged in as : " +advisorType(advisorId));
 		
-		TestUtil.print("Readind Leads Data from SF UI Leads Highlight Panel");
-		leadPage.openLead("00Q5500000BkliREAR");
-		//Thread.sleep(3000);
-		System.out.println(leadPage.readLeadValues());
-		System.out.println("Test Passed");
+		try {
+			//homePage.navigateToMultipleUser("advisor", advisorId);		log.info("Logged in as : " +advisorType(advisorId));
+			
+			TestUtil.print("Readind Leads Data from SF UI Leads Highlight Panel");
+			leadPage.openLead("00Q5500000BkliREAR");
+			//Thread.sleep(3000);
+			System.out.println(leadPage.readLeadValues());
+			System.out.println("Test Passed");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	
 	}
 
 	
-	@Test(description = "Test Description: Log a Call with  Reached Scenario. Test Case will be run for multiple profiles.",dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	@Test(description = "Test Description: Create Lead through SF API. Grab the Lead ID and open up the Lead in SF . Compare UI Data with the API data using Assertions.",dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
 	public void test4(String advisorId) throws Exception{
 		
-		TestUtil.print("Create Prospect and add details to the Client");
-		homePage.navigateToMultipleUser("advisor", advisorId);		log.info("Logged in as : " +advisorType(advisorId));
+		TestUtil.print("CreateLead via API andValidate through UI");
+		//homePage.navigateToMultipleUser("advisor", advisorId);		log.info("Logged in as : " +advisorType(advisorId));
 		leadPage.createLeadviaAPIandValidatethroughUI();
+		
+	}
 	
+	
+	@Test(description = "Test Description: Create Lead through SF API. Grab the Lead ID and open up the Lead in SF . Compare UI Data with the API data using Assertions.",dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void test5(String advisorId) throws Exception{
+		
+		TestUtil.print("Reading Leads Data from SF UI Leads Highlight Panel");
+		//homePage.navigateToMultipleUser("advisor", advisorId);		log.info("Logged in as : " +advisorType(advisorId));
+		leadPage.openLead("00Q5500000Bl4inEAB");
+		if (driver.findElement(By.xpath("(//div[contains(@class, 'entityNameTitle')])[last()]")).getText().equalsIgnoreCase("Lead")){
+			System.out.println("Yes");
+			
+		}else {System.out.println("No");}
+		
+	}
+	
+	
+	@Test(description = "Test Description: Create Lead through SF API. Grab the Lead ID and open up the Lead in SF . Compare UI Data with the API data using Assertions.",dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void test6(String advisorId) throws Exception{
+		
+		TestUtil.print("Reading Leads Data from SF UI Leads Highlight Panel");
+		//homePage.navigateToMultipleUser("advisor", advisorId);		log.info("Logged in as : " +advisorType(advisorId));
+		leadPage.openLead("00Q5500000Bl7OxEAJ");
+		if (driver.findElement(By.xpath("(//div[contains(@class, 'entityNameTitle')])[last()]")).getText().equalsIgnoreCase("Lead")){
+			System.out.println("Yes");
+			
+		}else {System.out.println("No");}
+		
+		
+	}
+	
+	@Test(description = "Test Description: Grab the exiting Lead and using API and print Leads Data.",dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void test7(String advisorId) throws Exception{
+		
+		TestUtil.print("Reading Lead Data");
+		System.out.println(sfdcAPICRUDOperation.getRecord("Lead", "00Q5500000Bl7VUEAZ"));
+	}
+	
+	@Test(description = "Test Description: Grab the exiting Lead and using API and print Leads Data.",dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void test8(String advisorId) throws Exception{
+		
+		TestUtil.print("Reading Lead Data");
+		System.out.println(sfdcAPICRUDOperation.getRecord("Lead", "00Q5500000BlC9QEAV"));
 	}
 	
 	
 	
+	
+	/*
 	
 	@AfterMethod
-	//@AfterSuite
-	public void tearDown(){
-		driver.quit();
-		
-		
-		
+	public void movetoHomePage() throws Exception {
+		homePage.goBacktoHomepage();
+		System.out.println("\nSucessfully Navigated to the HomePage..............");
 	}
+	
+	
+	@AfterTest
+	public void logout() throws Exception{
+		loginPage.logout();
+	}
+	*/	
+	
 	
 }

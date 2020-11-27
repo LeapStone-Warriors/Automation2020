@@ -155,7 +155,7 @@ public class TestUtil extends TestBase{
     public static void print(String TestCaseName) {
     	 
     	 System.out.println();
-    	 System.out.println("***************************** Executing Test Case: "+TestCaseName+" ******************************");
+    	 System.out.println("####################### Executing Test Case: "+TestCaseName+" #######################################3");
     	 System.out.println();
      }
      

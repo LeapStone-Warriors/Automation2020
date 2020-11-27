@@ -41,7 +41,8 @@ public class RetryAnalyzer extends TestBase implements IRetryAnalyzer {
 		return false;
 	}	
 
-	 public void extendReportsFailOperations(ITestResult iTestResult) {
+	
+	public void extendReportsFailOperations(ITestResult iTestResult) {
 	        @SuppressWarnings("unused")
 			Object testClass = iTestResult.getInstance();
 	        //WebDriver webDriver = ((TestBase) testClass).getDriver();

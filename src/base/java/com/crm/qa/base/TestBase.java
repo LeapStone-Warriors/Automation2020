@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
-
+import org.apache.log4j.*;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.UnexpectedAlertBehaviour;
 import org.openqa.selenium.WebDriver;
@@ -19,6 +19,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
 import org.testng.asserts.SoftAssert;
 import com.crm.qa.util.*;
 import com.crm.qa.base.DriverManager;
@@ -30,7 +32,7 @@ public class TestBase {
 	public static WebDriver driver;
 	public static Properties prop;
 	public static SoftAssert softAssertion = new SoftAssert();
-	public static HashMap<String, String> sfdcData = new HashMap<String, String>();
+	public static Logger log = Logger.getLogger("trail");
 	
 		public TestBase(){
 		try {
@@ -44,15 +46,15 @@ public class TestBase {
 	}
 	
 		
-	
-	public void initialization(){
+	@BeforeSuite(alwaysRun=true)
+	public void initialSetup(){
 			
+			System.out.println("\nConfiguring Driver and Browser properties .....................\n");
+		
 			String browserName = 	prop.getProperty("browser");
 		
 			if(browserName.equals("chrome")){
 				
-				//System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+ prop.getProperty("chromedriver_path"));
-			
 				new DesiredCapabilities();
 				DesiredCapabilities capabilities = DesiredCapabilities.chrome();
 				
@@ -84,15 +86,30 @@ public class TestBase {
 		
 		}
 	
-
+		System.out.println("Browser properties are configured..............");	
 		
+		System.out.println("\nConfiguring Browser Setup .....................");
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
+		System.out.println("Browser Setup is Completed.....................");
+		System.out.println("********************************************************************************************************\n");
+		
 		driver.get(prop.getProperty("url"));
 		
 		
 	}
+	
+	
+	@AfterSuite(alwaysRun=true)
+	public void closeDriver() {
+		
+		System.out.println("\nClosing Browser and terminating driver instance.............");
+		driver.quit();
+		
+	}
+	
+	
 	
 	public static String[] addDaysToCurrentTime(int days){
 		String timestamp1, timestamp2, timestamp3, timestamp4, timestamp5, timestamp6, timestamp7;

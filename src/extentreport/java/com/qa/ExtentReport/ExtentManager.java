@@ -8,6 +8,8 @@ package com.qa.ExtentReport;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.openqa.selenium.Platform;
@@ -36,18 +38,21 @@ public class ExtentManager extends TestBase{
   private static String macReportFileLoc = macPath + "/" + reportFileName;
   private static String winReportFileLoc = windowsPath + "\\" + reportFileName;
   
-  Properties prop = new Properties();
+  static Properties prop = new Properties();
 
+	  
+  
   public static ExtentReports getInstance() {
       if (extent == null)
-          createInstance();
+    	  createInstance();
       return extent;
   }
 
   //Create an extent report instance
   public static ExtentReports createInstance() {
      
-
+	  getPropInfo();
+	 
 	  platform = getCurrentPlatform();
       String fileName = getReportFileLocation(platform);
       ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(fileName);
@@ -64,10 +69,10 @@ public class ExtentManager extends TestBase{
       
       extent.setSystemInfo("OS", platform.toString());
       extent.setSystemInfo("OS Version",System.getProperty("os.version"));
-      extent.setSystemInfo("TestingEnv", "FSCFull");
+      extent.setSystemInfo("TestingEnv", prop.getProperty("TestEnv"));
       extent.setSystemInfo("JavaVersion", System.getProperty("java.runtime.version"));
       extent.setSystemInfo("Username", System.getProperty("user.name"));
-
+     
       return extent;
   }
 
@@ -131,18 +136,19 @@ public class ExtentManager extends TestBase{
 
 
   
-  
-public  Properties getPropInfo() throws Exception {
+
+	public static void getPropInfo()  {
 	  
-	  FileInputStream ip = new FileInputStream(System.getProperty("user.dir")+ "/src/main/java/com/crm"
-				+ "/qa/config/QAconfig.properties");
-	  
-	  prop.load(ip);
-	  
-	  return prop;
-	  
+	 		prop = new Properties();
+			FileInputStream ip = null;
+				
+			try {ip = new FileInputStream(System.getProperty("user.dir")+ "/src/configuration/java/com/crm"+ "/qa/config/QAconfig.properties");} 
+			catch (FileNotFoundException e) {e.printStackTrace();}
+			
+			try {prop.load(ip);} catch (IOException e) {e.printStackTrace();}
+
   }
-  
+
   
   
   

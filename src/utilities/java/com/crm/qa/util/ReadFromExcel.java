@@ -18,7 +18,7 @@ import com.crm.qa.base.*;
 
 public class ReadFromExcel extends TestBase {
 
-	InitializeUserData 	initializeData = new InitializeUserData(); 
+	 
 	Properties cloned = (Properties)prop.clone();
 	private static int writeRow = 1;
 	
