@@ -43,7 +43,7 @@ public class LoginPage extends TestBase {
 		
 		public void logout() throws InterruptedException{
 			
-			System.out.println("\n********************************************************************************************************************");
+			System.out.println("\n*********************************************************************************************************************");
 			System.out.println("\n Last TestCase in suite was executed. Logging out of SF.........");
 			TestUtil.clickElement(userIconBtn);
 			TestUtil.clickElement(logOut);
