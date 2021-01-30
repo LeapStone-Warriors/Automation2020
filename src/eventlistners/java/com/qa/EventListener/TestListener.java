@@ -11,7 +11,7 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
-import com.crm.qa.util.TestBase;
+import com.crm.qa.base.TestBase;
 import com.qa.ExtentReport.ExtentManager;
 import com.qa.ExtentReport.ExtentTestManager;
 import com.relevantcodes.extentreports.LogStatus;

@@ -4,8 +4,8 @@ package com.crm.qa.testcases;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import com.crm.qa.dataProvider.*;
+import com.crm.qa.util.TestUtil;
 import com.crm.qa.base.InitialSetup;
-import com.crm.qa.base.TestUtil;
 
 
 

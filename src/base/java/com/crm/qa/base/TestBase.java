@@ -22,8 +22,8 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.asserts.SoftAssert;
-import com.crm.qa.util.*;
-import com.crm.qa.base.DriverManager;
+
+import com.crm.qa.util.TestUtil;
 
 
 
@@ -153,14 +153,6 @@ public class TestBase {
 		return advisor;
 	
 	}
-	
-
-	
-	
-	
-	
-	
-	
 	
 	
 	

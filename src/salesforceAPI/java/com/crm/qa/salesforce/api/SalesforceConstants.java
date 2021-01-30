@@ -5,7 +5,7 @@ package com.crm.qa.salesforce.api;
 
 public final class SalesforceConstants {
 
-		
+//***************************************Constants defined for Lead Object************************************		
 	public static class Lead{
 		public static final  String[] CITY = {"City", "City"};
 		public static final  String[] COMPANYREGION= {"CompanyRegion", "CompanyRegion__c"};
@@ -27,6 +27,8 @@ public final class SalesforceConstants {
 	}
 
 
+//***************************************Constants defined for Account Object (Individual Prospect/Client)************************************		
+	
 	public final static class Individual{
 		
 		
@@ -47,38 +49,43 @@ public final class SalesforceConstants {
 	}
 	
 	
+//***************************************Constants defined for Account Object (Business Prospect/Client)************************************		
 	
+		public final static class Business{
+			
+			
+			public final class Prospect {
+			
+			
+			
+			
+			}
 	
+			public final class Client {
+			
+		
+		
+			}
 	
+		private Business() {}
+	}
 	
-	
-	
-	/*
-	
-	public static String[] feildMapping(String field, String fieldUI, String fieldSFDC) {
-       	
-		//To make entry into Map
-        Map<String, String[]> fieldMap = new HashMap<String, String[]>();
-        String[] fieldInformationArray = new String[]{field, fieldUI, fieldSFDC};
-        //String field = "Product";
-        fieldMap.put(field, fieldInformationArray);
 
-        return new String[] {fieldMap.get(field)[0],fieldMap.get(field)[1],fieldMap.get(field)[2]};
-           
+//***************************************Constants defined for Account Object (Business Prospect/Client)************************************		
+		
+		public final static class Household{
+				
+				
+			
+		
+		private Household() {}
 	}
-	
-	public static void Leadfields() {
-		//String[] Product = {"Product", "ProductofInterest", "ProductofInterest__c"};
+
 		
 		
 		
-	}
-	*/
 	
-	
-	
-	
-	}
+}
 	
 	
 

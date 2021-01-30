@@ -24,9 +24,9 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.github.javafaker.Faker;
-import com.crm.qa.base.TestUtil;
 import com.crm.qa.salesforce.api.SalesforceQueryBuilder;
 import com.crm.qa.salesforce.api.SalesforceRestStarter;
+import com.crm.qa.util.TestUtil;
 
 
 

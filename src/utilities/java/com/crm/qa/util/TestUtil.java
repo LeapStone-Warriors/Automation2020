@@ -19,7 +19,9 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import com.crm.qa.base.TestBase;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.util.Calendar;
@@ -40,11 +42,9 @@ public class TestUtil extends TestBase{
 		
 		FileUtils.copyFile(scrFile, new File(currentDir + "/screenshots/" + System.currentTimeMillis() + ".png"));
 		
-		}
+	}
 	
     public static void SelectDropDownOption(WebElement dropdown, String Option ) {
-		
-    	
 		Select dropdownoption = new Select(dropdown);
 		dropdownoption.selectByVisibleText(Option);
 		
@@ -57,7 +57,6 @@ public class TestUtil extends TestBase{
     	clickElement(dropdown);
 		Select dropdownoption = new Select(dropdown);
 		dropdownoption.selectByVisibleText(Option);
-		
 	}
     
     
@@ -87,15 +86,11 @@ public class TestUtil extends TestBase{
     	jse.executeScript("arguments[0].value='" +value+ "';", element);
     }
     
-    	
-    
-    
     
     public static void enterTextinTextArea(String label, String text ) throws InterruptedException {
     	
     	WebElement field = driver.findElement(By.xpath("//span[contains(text(),'"+label+"')]/../..//textarea"));
     	field.sendKeys(text);
-    	
     }
     
     
@@ -118,10 +113,6 @@ public class TestUtil extends TestBase{
 	   	wait.until(ExpectedConditions.visibilityOf(element));
     }
     
- 
-    
- 
-    
     public static void waitforPageLoad(WebElement element) throws InterruptedException { 
  			ExpectedCondition<Boolean> pageLoadCondition = new
                 ExpectedCondition<Boolean>() {
@@ -134,9 +125,7 @@ public class TestUtil extends TestBase{
         wait.until(pageLoadCondition);
     }
     
-   
-    
-    
+ 
     public static void waitUntilPageLoad(WebDriver driver) throws InterruptedException { 
     	new WebDriverWait(driver, 30).until((ExpectedCondition<Boolean>) wd ->((JavascriptExecutor) wd).executeScript("return document.readyState").equals("complete"));
     }
@@ -183,22 +172,16 @@ public class TestUtil extends TestBase{
     	 String accountId = null;
     	 driver.findElement(By.xpath("//a[contains (@class, ('" +accountId+ "'))]")).click();
     	 Thread.sleep(2000);
-    	 
-    	 
      }
  
      
    //Need AccountName for this one. Work on it if you want to use it.
      public void clickAccountviaAccountScreen() throws InterruptedException{ 
  		
-    	 String accountName = null;
- 		Thread.sleep(2000);
- 		changeNavigationMenu("Accounts");
- 		Thread.sleep(2000);
- 		TestUtil.closeAllOpenTabs(driver);
- 		Thread.sleep(2000);
- 		driver.findElement(By.xpath("(//a[contains (@title, ('" +accountName+ "'))][contains (@class, ('slds-truncate'))])[1]")).click();
- 		Thread.sleep(2000);
+    	 String accountName = null;Thread.sleep(2000);
+ 		 changeNavigationMenu("Accounts");Thread.sleep(2000);
+ 		 TestUtil.closeAllOpenTabs(driver);Thread.sleep(2000);
+ 		 driver.findElement(By.xpath("(//a[contains (@title, ('" +accountName+ "'))][contains (@class, ('slds-truncate'))])[1]")).click();Thread.sleep(2000);
  		
  	}
      
@@ -310,25 +293,21 @@ public class TestUtil extends TestBase{
          }
          return generatedName.toString();
      }
-    
   
-     
-     
-     //Validate Detail Page Fields
      public static void validatePageField(String fieldName, String expectedValue, String errorMessage) throws InterruptedException, AWTException {
 	 		
-	 		String actualValue = driver.findElement(By.xpath("(//span[(text()='" +fieldName+ "')]/../..//lightning-formatted-text)[last()]")).getText();
-	 		softAssertion.assertEquals(actualValue, expectedValue, errorMessage);
+		String actualValue = driver.findElement(By.xpath("(//span[(text()='" +fieldName+ "')]/../..//lightning-formatted-text)[last()]")).getText();
+		softAssertion.assertEquals(actualValue, expectedValue, errorMessage);
 	 	
-	 	}
+	 }
 	 	 
      
      public static void validatePageFieldthatContains(String fieldName, String expectedValue, String errorMessage) throws InterruptedException, AWTException {
 	 		
-	 		String actualValue = driver.findElement(By.xpath("(//span[(text()='" +fieldName+ "')]/../..//lightning-formatted-text)[last()]")).getText();
-	 		softAssertion.assertTrue(actualValue.contains(expectedValue), errorMessage);
+		String actualValue = driver.findElement(By.xpath("(//span[(text()='" +fieldName+ "')]/../..//lightning-formatted-text)[last()]")).getText();
+		softAssertion.assertTrue(actualValue.contains(expectedValue), errorMessage);
 	 	
-	 	}
+	 }
 	 	 
      
      public static String changeDateFormat(String date) throws ParseException{
@@ -355,31 +334,25 @@ public class TestUtil extends TestBase{
     	 int length = 6;
     	 String generatedString = RandomStringUtils.randomAlphabetic(length);
     	 return generatedString;
- 	}
+ 	 }
      
-     
-     
- 
-     
+         
  	public static String geLocator(WebElement element) {
 
-      
-        String[] selectorWithValue= (element.toString().split("->")[1].replaceFirst("(?s)(.*)\\]", "$1" + "")).split(":");
+ 		String[] selectorWithValue= (element.toString().split("->")[1].replaceFirst("(?s)(.*)\\]", "$1" + "")).split(":");
 
         //String selector = selectorWithValue[0].trim();
         String value = selectorWithValue[1].trim();
         return value;
-    }   
+ 	}   
    
-     
      
      public boolean isLeadLinkVisible(){
  	    WebDriverWait zeroWait = new WebDriverWait(driver, 0);
  	    ExpectedCondition<WebElement> c = ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@value='Create New Application']"));
- 	    try {
- 	        zeroWait.until(c);
- 	        return true;
- 	    } catch (Exception e) {return false;}
+ 	    
+ 	    try {zeroWait.until(c);return true;} 
+ 	    catch (Exception e) {return false;}
  	}   
      
     

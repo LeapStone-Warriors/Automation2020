@@ -6,7 +6,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.testng.Assert;
 import com.crm.qa.salesforce.api.SalesforceConstants;
-import com.crm.qa.util.TestBase;
+import com.crm.qa.base.TestBase;
 import com.crm.qa.salesforce.api.SalesforceCRUDOperationAPI;
 
 
@@ -17,7 +17,8 @@ public class SalesforceDataValidation extends TestBase{
 	static SalesforceCRUDOperationAPI sfdcAPICRUDOperation = new SalesforceCRUDOperationAPI();
 	private static int i = 0;
 		
-	 	public static void  getSFLeadData() throws Exception  {
+	 //*******************Grab Lead Data from Backend***************************************
+		public static void  getSFLeadData() throws Exception  {
 			salesforceLead.put(SalesforceConstants.Lead.CITY[0],json.getJSONArray("records").getJSONObject(i).getString(SalesforceConstants.Lead.CITY[1])); 
             salesforceLead.put(SalesforceConstants.Lead.COMPANYREGION[0],json.getJSONArray("records").getJSONObject(i).getString(SalesforceConstants.Lead.COMPANYREGION[1])); 
 			salesforceLead.put(SalesforceConstants.Lead.COMPANY[0],json.getJSONArray("records").getJSONObject(i).getString(SalesforceConstants.Lead.COMPANY[1]));
@@ -34,6 +35,9 @@ public class SalesforceDataValidation extends TestBase{
 	    }
 	
 
+	//*******************Validate lead data against UI**********************************************
+	//This method will compare the lead data that was grabbed from Backend and compare it against the SF Lead Page layout
+		
 	 	public static void validateLeadData() throws Exception {
 	 		
 	 		getSFLeadData();
@@ -59,7 +63,10 @@ public class SalesforceDataValidation extends TestBase{
 	 	}catch (JSONException e) {e.printStackTrace();Assert.fail("Exception is thrown during Lead Data validation through API");}
 	 }
 	 	
-	 	
+	 
+	 //*******************Validate lead data against UI**********************************************
+	//This method will compare the lead data from UI and compare it against the Backend 
+			
 	 	public static void validateLeadDataViaAPI(String sfdcId) throws Exception {
 	 		
 		 	json = sfdcAPICRUDOperation.getRecord("Lead", sfdcId);
@@ -88,7 +95,7 @@ public class SalesforceDataValidation extends TestBase{
  	}
 	 	
 	 
-	 	
+/*	 	
 	 	public static void validateLeadDataonUI(String sfdcId) throws Exception {
 	 		
 		 	json = sfdcAPICRUDOperation.getRecord("Lead", sfdcId);
@@ -116,6 +123,6 @@ public class SalesforceDataValidation extends TestBase{
 		 	}catch (JSONException e) {e.printStackTrace();Assert.fail("Exception is thrown during Lead Data validation through API");}
 	 }
 	 
-
+*/
 
 }

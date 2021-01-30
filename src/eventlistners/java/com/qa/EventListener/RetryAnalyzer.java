@@ -14,7 +14,7 @@ import com.relevantcodes.extentreports.LogStatus;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
-import com.crm.qa.util.TestBase;
+import com.crm.qa.base.TestBase;
 import com.qa.ExtentReport.ExtentTestManager;
 
 

@@ -1,5 +1,6 @@
 package com.crm.qa.salesforce.api;
 
+import com.crm.qa.base.TestBase;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -15,7 +16,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import com.crm.qa.util.TestBase;
 
 
 public class SalesforceRestStarter extends TestBase {
