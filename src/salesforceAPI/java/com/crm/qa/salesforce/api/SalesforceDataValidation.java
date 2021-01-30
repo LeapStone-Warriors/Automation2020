@@ -5,26 +5,19 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.testng.Assert;
-import com.crm.qa.base.TestBase;
 import com.crm.qa.salesforce.api.SalesforceConstants;
+import com.crm.qa.util.TestBase;
 import com.crm.qa.salesforce.api.SalesforceCRUDOperationAPI;
 
 
 public class SalesforceDataValidation extends TestBase{
 
-	 
 	private static JSONObject json = new JSONObject();	
 	private static Map<String, String> salesforceLead = new HashMap<String, String>();
 	static SalesforceCRUDOperationAPI sfdcAPICRUDOperation = new SalesforceCRUDOperationAPI();
-	
 	private static int i = 0;
 		
 	 	public static void  getSFLeadData() throws Exception  {
-
-	 		//SFTokenandInstanceURL = SalesforceRestStarter.SalesforceToken();
-	    	//json = SalesforceQueryRunner.getLead(SFTokenandInstanceURL);
-	    	
-	    	
 			salesforceLead.put(SalesforceConstants.Lead.CITY[0],json.getJSONArray("records").getJSONObject(i).getString(SalesforceConstants.Lead.CITY[1])); 
             salesforceLead.put(SalesforceConstants.Lead.COMPANYREGION[0],json.getJSONArray("records").getJSONObject(i).getString(SalesforceConstants.Lead.COMPANYREGION[1])); 
 			salesforceLead.put(SalesforceConstants.Lead.COMPANY[0],json.getJSONArray("records").getJSONObject(i).getString(SalesforceConstants.Lead.COMPANY[1]));
@@ -38,10 +31,6 @@ public class SalesforceDataValidation extends TestBase{
             salesforceLead.put(SalesforceConstants.Lead.STATE[0],json.getJSONArray("records").getJSONObject(i).getString(SalesforceConstants.Lead.STATE[1])); 
             salesforceLead.put(SalesforceConstants.Lead.TITLE[0],json.getJSONArray("records").getJSONObject(i).getString(SalesforceConstants.Lead.TITLE[1])); 
             salesforceLead.put(SalesforceConstants.Lead.WEBSITE[0],json.getJSONArray("records").getJSONObject(i).getString(SalesforceConstants.Lead.WEBSITE[1]));
-
-            
-			 
-            
 	    }
 	
 
@@ -68,9 +57,7 @@ public class SalesforceDataValidation extends TestBase{
 	 		softAssertion.assertAll();
 	 	
 	 	}catch (JSONException e) {e.printStackTrace();Assert.fail("Exception is thrown during Lead Data validation through API");}
-
-	 		
-	 	}
+	 }
 	 	
 	 	
 	 	public static void validateLeadDataViaAPI(String sfdcId) throws Exception {
@@ -127,21 +114,8 @@ public class SalesforceDataValidation extends TestBase{
 		 		softAssertion.assertAll();
 		 	
 		 	}catch (JSONException e) {e.printStackTrace();Assert.fail("Exception is thrown during Lead Data validation through API");}
- 	}
+	 }
 	 
-	 	
-	 	
-	 	
-	 	
-	 	
-	 	
-	 	public static void main(String[] args) throws Exception {
-	 	
-	 	
-	 		
-	 	}
-
-
 
 
 }

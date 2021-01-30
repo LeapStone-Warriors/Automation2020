@@ -3,8 +3,9 @@ package com.crm.qa.pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import com.crm.qa.base.TestBase;
-import com.crm.qa.util.TestUtil;
+
+import com.crm.qa.base.TestUtil;
+import com.crm.qa.util.TestBase;
 
 public class LoginPage extends TestBase {
 	

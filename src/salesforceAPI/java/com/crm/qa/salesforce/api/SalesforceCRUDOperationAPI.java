@@ -24,9 +24,9 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.github.javafaker.Faker;
+import com.crm.qa.base.TestUtil;
 import com.crm.qa.salesforce.api.SalesforceQueryBuilder;
 import com.crm.qa.salesforce.api.SalesforceRestStarter;
-import com.crm.qa.util.TestUtil;
 
 
 
@@ -37,22 +37,16 @@ public class SalesforceCRUDOperationAPI {
 	final static String queryPath = "/services/data/v49.0/query/";
 	final static CloseableHttpClient httpclient = HttpClients.createDefault();
 	final static ObjectMapper mapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
-	
-    private static String REST_ENDPOINT = "/services/data" ;
+	private static String REST_ENDPOINT = "/services/data" ;
     private static String API_VERSION 	= "/v49.0" ;
-    
     static Map<String, String> SFTokenandInstanceURL;
     static String SFDCId;
-    //static JSONObject leadDataAPI;
-    
     static String instanceUrl, accessToken ;
-	
-    public static JSONObject leadDataAPI = new JSONObject();
+	public static JSONObject leadDataAPI = new JSONObject();
 	public static Faker faker = new Faker();
 	
 	
 	 public SalesforceCRUDOperationAPI() {
-		
 		
 		try {SFTokenandInstanceURL = SalesforceRestStarter.SalesforceToken();} 
 		catch (Exception e) {	e.printStackTrace();}
@@ -63,12 +57,7 @@ public class SalesforceCRUDOperationAPI {
 	
 	
 	public  JSONObject getRecord(String sObject, String leadID) throws Exception {
-    	
-		//SFTokenandInstanceURL = SalesforceRestStarter.SalesforceToken();
-		
-		//String instanceUrl = (String) SFTokenandInstanceURL.get("instanceURL");
-    	//String accessToken = (String) SFTokenandInstanceURL.get("accessToken");
-		
+    
 		 // query leads
         final URIBuilder builder = new URIBuilder(instanceUrl);
         builder.setPath(queryPath).setParameter("q", SalesforceQueryBuilder.getQueryFor(sObject, leadID));
@@ -97,37 +86,38 @@ public class SalesforceCRUDOperationAPI {
 	}
     
 	
-		public  JSONObject createLead() throws Exception {
+	public  JSONObject createLead() throws Exception {
 		
-			String leadId 		= null;
-			String firstName 	= "Auto_"+faker.name().firstName();
-			String lastName 	= faker.name().lastName();
-			String email 		= TestUtil.getNewEmail();
+		String leadId 		= null;
+		String firstName 	= "Auto_"+faker.name().firstName();
+		String lastName 	= faker.name().lastName();
+		String email 		= TestUtil.getNewEmail();
 			
-			try {
-				leadDataAPI.put("FirstName", firstName);
-				leadDataAPI.put("LastName", lastName);
-				leadDataAPI.put("Email", email);
-				leadDataAPI.put("CompanyRegion__c", "Southwest");
-				leadDataAPI.put("Company__c", "Pfizer");
-				leadDataAPI.put("RoundOfFunding__c", "Series A");
-				leadDataAPI.put("Street", "123 Park Lane");
-				leadDataAPI.put("City", "Chandler");
-				leadDataAPI.put("State", "AZ");
-				leadDataAPI.put("Country", "United States");
-				leadDataAPI.put("DateOfBirth__c", "1965-11-11");
-				leadDataAPI.put("Industry", "Life Science - Biotech");
-				leadDataAPI.put("InstitutionalCapitalRaised__c", "2345678");
-				leadDataAPI.put("TCPSegmentTier__c", "Bronze: Low (< $500k)");
-				leadDataAPI.put("Priority__c", "Immediate");
-				leadDataAPI.put("ProductsofInterest__c", "Tailored Lending");
-				leadDataAPI.put("ReferredBy__c", "Abel Matthews");
-				leadDataAPI.put("RelationshipStartDateWithSVB__c", "2020-07-20");
-				leadDataAPI.put("Title", "CTO");
-				leadDataAPI.put("Website", "www.astra.com");
-				leadDataAPI.put("MobilePhone", "5164432109");
-				leadDataAPI.put("leadSource", "COI");
-				leadDataAPI.put("Description", "This Lead was created through Automation Script");
+		try {
+			leadDataAPI.put("FirstName", firstName);
+			leadDataAPI.put("LastName", lastName);
+			leadDataAPI.put("Email", email);
+			leadDataAPI.put("CompanyRegion__c", "New England");
+			leadDataAPI.put("Company__c", "Yahoo");
+			leadDataAPI.put("RoundOfFunding__c", "Series A");
+			leadDataAPI.put("Street", "123 Park Lane");
+			leadDataAPI.put("City", "Chandler");
+			leadDataAPI.put("State", "Vermont");
+			leadDataAPI.put("Country", "United States");
+			leadDataAPI.put("DateOfBirth__c", "1965-11-11");
+			leadDataAPI.put("Industry", "Technology - Tech Banking / GFB");
+			leadDataAPI.put("InstitutionalCapitalRaised__c", "2345678");
+			leadDataAPI.put("TCPSegmentTier__c", "Bronze: Low (< $500k)");
+			leadDataAPI.put("Priority__c", "Immediate");
+			leadDataAPI.put("ProductsofInterest__c", "Tailored Lending");
+			leadDataAPI.put("ReferredBy__c", "Abel Matthews");
+			leadDataAPI.put("RelationshipStartDateWithSVB__c", "2020-07-20");
+			leadDataAPI.put("Title", "CTO");
+			leadDataAPI.put("Website", "www.astra.com");
+			leadDataAPI.put("MobilePhone", "5164432109");
+			leadDataAPI.put("leadSource", "New Prospecting Tool");
+			leadDataAPI.put("Description", "This Lead was created through Automation Script");
+			leadDataAPI.put("CBTeamCode__c", "a0Z550000061ZyfEAE");
 				
 			}
 			catch (JSONException e) {e.printStackTrace();throw new ServletException(e);}
@@ -174,23 +164,19 @@ public class SalesforceCRUDOperationAPI {
 		
 	
 		
-		 private  String getBody(InputStream inputStream) {
-		        String result = "";
-		        try {
-		            BufferedReader in = new BufferedReader(new InputStreamReader(inputStream));
+	private  String getBody(InputStream inputStream) {
+		String result = "";
+		try {
+		      BufferedReader in = new BufferedReader(new InputStreamReader(inputStream));
 		            
-		            String inputLine;
-		            while ( (inputLine = in.readLine() ) != null ) {
-		                result += inputLine;
-		                result += "\n";
-		            }
-		            in.close();
-		        } catch (IOException ioe) {ioe.printStackTrace();}
+		      String inputLine;
+		         while ( (inputLine = in.readLine() ) != null ) {
+		               result += inputLine;
+		               result += "\n";
+		         } in.close();
+		    } catch (IOException ioe) {ioe.printStackTrace();}
 		        
 		        return result;
-		    }
+		 }
 		
-		
-
-
 }

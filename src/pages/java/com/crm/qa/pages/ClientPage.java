@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import com.crm.qa.util.*;
-import com.crm.qa.base.TestBase;
+import com.crm.qa.base.TestUtil;
 
 
 
@@ -220,7 +220,6 @@ public class ClientPage extends TestBase {
 		
 		//***Client Briefing****
 		TestUtil.dropdownOption("Priority","High");
-		//inputLastInteraction.sendKeys("7/1/2020", Keys.TAB);
 		TestUtil.enterTextinField("Commentary","Automation");
 		txtSpecialHandling.sendKeys("AutomationSpecialHandling");
 		

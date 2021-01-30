@@ -15,22 +15,23 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import com.crm.qa.util.TestBase;
 
 
-public class SalesforceRestStarter {
+public class SalesforceRestStarter extends TestBase {
 
     private static final String TOKEN_URL =  "https://test.salesforce.com/services/oauth2/token";
 
     public static Map<String, String> SalesforceToken() throws Exception {
 
-        final String username = "isharaf@svb.com.qa";
-        final String password = "Capricon25!";
-        final String consumerKey  = "3MVG97wqanbUM37KF9VebGdxPvFyxMJQR2vdaGKXSYzxk3X5NI0.qUES83HGvJKeJFHtg4i4R8iTkSm0bR5XL";
-        final String consumerSecret = "4704C11D33C8B0BFA7D7D87A3DDCAD5A0DC904D256CD12E0A6D262370868FAC3";
-        final String accessToken;
+    	final String username = prop.getProperty("username");
+        final String password = prop.getProperty("password");
+        final String consumerKey  =  prop.getProperty("SFDC_API_ClientID");
+        final String consumerSecret =  prop.getProperty("SFDC_API_ClientSecret");
+    	final String accessToken;
         final String instanceUrl;
         final JsonNode loginResult;
-        
+             
         Map<String, String> SFTokenandInstanceURL = new HashMap<String, String>();
         
      try {

@@ -1,21 +1,15 @@
 package com.crm.qa.base;
 
 import org.json.JSONObject;
-import org.junit.BeforeClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
-import com.crm.qa.base.TestBase;
 import com.crm.qa.pages.HomePage;
 import com.crm.qa.pages.LoginPage;
 import com.crm.qa.salesforce.api.SalesforceCRUDOperationAPI;
 import com.crm.qa.pages.ClientPage;
 import com.crm.qa.pages.LeadPage;
 import com.crm.qa.util.*;
-
-
-
-
 
 public class InitialSetup extends TestBase {
 
@@ -62,14 +56,5 @@ public class InitialSetup extends TestBase {
 			loginPage.logout();
 		}
 			
-
-
-
-
-
-
-
-
-
 
 }

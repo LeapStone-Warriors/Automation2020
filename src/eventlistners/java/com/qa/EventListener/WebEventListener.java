@@ -18,8 +18,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.events.WebDriverEventListener;
 
-import com.crm.qa.base.TestBase;
-import com.crm.qa.util.TestUtil;
+import com.crm.qa.base.TestUtil;
+import com.crm.qa.util.TestBase;
 
 public class WebEventListener extends TestBase implements WebDriverEventListener {
 

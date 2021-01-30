@@ -16,10 +16,8 @@
 			<methods>
 	
 			
-					<include name="test5"></include>
-					<include name="test6"></include>
-					<include name="test7"></include>
-					<include name="test8"></include>
+					<include name="test1"></include>
+
 					
 
 		
