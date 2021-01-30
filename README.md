@@ -1,1 +1,1 @@
-# SeleniumTESTNG+Maven+ExtenReport Boiler plate
+# SeleniumTESTNG+Maven+ExtentReport Boiler plate
